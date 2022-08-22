@@ -1,3 +1,4 @@
+from itertools import count
 import math
 # 1) Написать программу, которая считает 4 числа c клавиатуры и выведет на экран самое большое из них
 
@@ -23,22 +24,22 @@ print()
 
 number_of_appartment = int(input("Input number of appartment: "))
 
-entrance = math.ceil(number_of_appartment / 36)
+count_of_appartments_in_entrance = 36
+count_of_appartments_on_floor = 4
 
-if 1 <= number_of_appartment <= 36:
-    floor = math.ceil(number_of_appartment / 4)
-    print("Entrance:", entrance, "Floor:", floor)
-elif 36 < number_of_appartment <= 72:
-    floor = math.ceil(number_of_appartment / 4) - 9
-    print("Entrance:", entrance, "Floor:", floor)
-elif 72 < number_of_appartment <= 108:
-    floor = math.ceil(number_of_appartment / 4) - 18
-    print("Entrance:", entrance, "Floor:", floor)
-elif 108 < number_of_appartment <= 144:
-    floor = math.ceil(number_of_appartment / 4) - 27
-    print("Entrance:", entrance, "Floor:", floor)
+entrance = math.ceil(number_of_appartment / count_of_appartments_in_entrance)
+floor = math.ceil(number_of_appartment /
+                  count_of_appartments_on_floor) - int((number_of_appartment / count_of_appartments_in_entrance)) * 9
+
+if 1 <= number_of_appartment <= 144:
+    entrance = math.ceil(number_of_appartment /
+                         count_of_appartments_in_entrance)
+    floor = math.ceil(number_of_appartment /
+                      count_of_appartments_on_floor) - int((number_of_appartment / count_of_appartments_in_entrance)) * 9
 else:
     print("Appartment is not in this house!")
+
+print("Entrance:", entrance, "Floor:", floor)
 
 # 3) Определить количество дней в году, который вводит пользователь. В високосном году - 366 дней, тогда как в обычном их 365. Високосный год определяется по следующему правилу:
 # Год високосный, если он делится на четыре без остатка, но если он делится на 100 без остатка, это не високосный год. Однако, если он делится без остатка на 400, это високосный год.
