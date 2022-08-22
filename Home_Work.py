@@ -27,10 +27,6 @@ number_of_appartment = int(input("Input number of appartment: "))
 count_of_appartments_in_entrance = 36
 count_of_appartments_on_floor = 4
 
-entrance = math.ceil(number_of_appartment / count_of_appartments_in_entrance)
-floor = math.ceil(number_of_appartment /
-                  count_of_appartments_on_floor) - int((number_of_appartment / count_of_appartments_in_entrance)) * 9
-
 if 1 <= number_of_appartment <= 144:
     entrance = math.ceil(number_of_appartment /
                          count_of_appartments_in_entrance)
