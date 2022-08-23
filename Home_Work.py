@@ -1,11 +1,10 @@
-from itertools import count
 import math
 # 1) Написать программу, которая считает 4 числа c клавиатуры и выведет на экран самое большое из них
 
 a, b, c, d = float(input("a = ")), float(
     input("b = ")), float(input("c = ")), float(input("d = "))
 
-if a != b and b != c and c != d:
+if a != b or b != c or c != d:
     if a > b and a > c and a > d:
         print("Greater number is a =", a)
     elif b > c and b > d:
@@ -32,10 +31,9 @@ if 1 <= number_of_appartment <= 144:
                          count_of_appartments_in_entrance)
     floor = math.ceil(number_of_appartment /
                       count_of_appartments_on_floor) - int((number_of_appartment / count_of_appartments_in_entrance)) * 9
+    print("Entrance:", entrance, "Floor:", floor)
 else:
     print("Appartment is not in this house!")
-
-print("Entrance:", entrance, "Floor:", floor)
 
 # 3) Определить количество дней в году, который вводит пользователь. В високосном году - 366 дней, тогда как в обычном их 365. Високосный год определяется по следующему правилу:
 # Год високосный, если он делится на четыре без остатка, но если он делится на 100 без остатка, это не високосный год. Однако, если он делится без остатка на 400, это високосный год.
@@ -43,10 +41,10 @@ print()
 
 year = int(input("Year = "))
 
-if (year % 4 == 0 or year % 400 == 0) and year % 100 != 0:
-    print("366 days in", year, "year")
-else:
+if year % 4 or not year % 100 and year % 400:
     print("365 days in", year, "year")
+else:
+    print("366 days in", year, "year")
 
 # 4) Треугольник существует только тогда, когда сумма любых двух его сторон больше третьей. Дано: a, b, c – стороны предполагаемого треугольника. Напишите программу, которая укажет,
 # существует ли такой треугольник или нет.
